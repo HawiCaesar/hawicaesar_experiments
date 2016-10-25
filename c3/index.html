@@ -21,7 +21,7 @@
 </head>
 <body style="font-family: 'Raleway', sans-serif;">
 
-<div id="chart"></div>
+<div id="chart" style="height: 400px;"></div>
 
 <!-- Scripts -->
 <script src="https://code.jquery.com/jquery-1.12.3.min.js"   integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="   crossorigin="anonymous"></script>
@@ -32,7 +32,12 @@
 <script>
 	var chart = c3.generate({
 	title: {
-		text:'Simple Comparison'
+		text:'Simple Comparison C3.js v HighCharts.js: C3.js Areaspline'
+	},
+	grid:{
+		y:{
+			show:true
+		}
 	},
 	bindto: '#chart',
 	point: {
@@ -44,8 +49,8 @@
             ['data2', 130, 100, 140, 200, 150, 50]
         ],
         types: {
-            data1: 'area-spline',
-            data2: 'area-spline'
+            data1: 'area',
+            data2: 'area'
         }
     }
 });
