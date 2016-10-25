@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HawiCaesar</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="HawiCaesar">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+    <link href="c3/c3.css" rel="stylesheet" type="text/css">
+    <style>
+    	#chart .c3-line-data2, .c3-line-data1 {
+		  stroke-width: 2px;
+		}
+		/*#chart .c3-circle {
+    fill: red !important;
+}*/
+    </style>
+</head>
+<body style="font-family: 'Raleway', sans-serif;">
+
+<div id="chart"></div>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-1.12.3.min.js"   integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="   crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js" charset="utf-8"></script>
+<script src="c3/c3.js"></script>
+
+<script>
+	var chart = c3.generate({
+	title: {
+		text:'Simple Comparison'
+	},
+	bindto: '#chart',
+	point: {
+   		 r: 5,
+  	},
+    data: {
+        columns: [
+            ['data1', 300, 350, 300, 0, 0, 0],
+            ['data2', 130, 100, 140, 200, 150, 50]
+        ],
+        types: {
+            data1: 'area-spline',
+            data2: 'area-spline'
+        }
+    }
+});
+</script>
+</body>
+</html>
