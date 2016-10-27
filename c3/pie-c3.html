@@ -35,26 +35,19 @@
 <script>
 	var chart = c3.generate({
 	title: {
-		text:'Simple Comparison C3.js v HighCharts.js: C3.js Areaspline'
-	},
-	grid:{
-		y:{
-			show:true
-		}
+		text:'Browser market shares January, 2015 to May, 2015'
 	},
 	bindto: '#chart',
-	point: {
-   		 r: 5,
-  	},
     data: {
         columns: [
-            ['data1', 300, 350, 300, 0, 0, 0],
-            ['data2', 130, 100, 140, 200, 150, 50]
+            ['Internet Explorer', 56.33],
+            ['Google Chrome', 24.03],
+            ['FireFox',10.38],
+            ['Safari',4.77],
+            ['Opera',0.91],
+            ['Proprietary, Undetectable', 0.2]
         ],
-        types: {
-            data1: 'area-spline',
-            data2: 'area-spline'
-        }
+        type: 'pie'
     }
 });
 </script>

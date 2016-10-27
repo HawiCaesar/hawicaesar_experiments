@@ -24,7 +24,7 @@
 	$(function () {
     $('#container').highcharts({
         chart: {
-            type: 'area'
+            type: 'areaspline'
         },
         title: {
             text: 'Simple Comparison C3.js v HighCharts.js: HighCharts.js Areaspline'
@@ -33,17 +33,17 @@
             text: 'Source: Wikipedia.org'
         },*/
         xAxis: {
-            categories: ['1', '2', '3', '4', '5'],
+            categories: [0,1,2,3,4,5],
             tickmarkPlacement: 'on',
             title: {
                 enabled: false
             }
         },
-        yAxis: {
-            title: {
-                text: 'Percent'
-            }
-        },
+        // yAxis: {
+        //     title: {
+        //         text: 'Percent'
+        //     }
+        // },
         tooltip: {
             pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y:,.0f}</b><br/>',
             split: true
