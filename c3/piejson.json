@@ -1,0 +1,8 @@
+[
+    {"label":"Internet Explorer","value":56.33},
+    {"label":"Google Chrome","value":24.03},
+    {"label":"FireFox","value":10.38},
+    {"label":"Safari","value":4.77},
+    {"label":"Opera", "value":0.91},
+    {"label":"Proprietary, Undetectable","value":0.2}
+]
