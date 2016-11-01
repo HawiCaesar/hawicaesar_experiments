@@ -36,31 +36,31 @@
 
 $(function () {
 
-    $.getJSON('./piejson.json', function (valuedata) {
-
-
-        var data = {};
-var key = [];
-valuedata.forEach(function(e) {
-    key.push(e.label);
-    data[e.label] = e.value;
-})  
-
-console.log(data)
+    $.getJSON('./linejson.json', function (data) {
 
 	var chart = c3.generate({
     	title: {
-    		text:'Browser market shares January, 2015 to May, 2015'
+    		text:'External JSON loading via C3.js'
     	},
     	bindto: '#chart',
         data: {
-            json: [data],
-            keys:{
-                value: key
-            },
-            type: 'pie'
+           json: data,
+            type: 'area-spline',
+
         }
     })
+
+    setInterval(function(){
+        chart.flow({
+            columns:
+                    [
+                        ['data1',Math.round(Math.random()*200)],
+                        ['data2',Math.round(Math.random()*200)],
+                        ['data3',Math.round(Math.random()*200)]
+                    ],
+            type:'area-spline'
+        })
+    }, 1500)
 
  });
 
