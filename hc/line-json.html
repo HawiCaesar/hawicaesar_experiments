@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HawiCaesar</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="HawiCaesar">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+</head>
+<body style="font-family: 'Raleway', sans-serif;">
+
+
+
+<div id="container" style="height: 400px; margin: 0 auto"></div>
+
+<script src="https://code.jquery.com/jquery-1.12.3.min.js"   integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="   crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script>
+	$(function () {
+    $(document).ready(function () {
+        // Highcharts.setOptions({
+        //     global: {
+        //         useUTC: false
+        //     }
+        // });
+
+        $('#container').highcharts({
+            chart: {
+                type: 'spline',
+                animation: Highcharts.svg, // don't animate in old IE
+                marginRight: 10,
+                events: {
+                    load: function () {
+
+                        // set up the updating of the chart each second
+                        var series = this.series[0];
+                        setInterval(function () {
+
+                        	var a = (new Date()).getTime();
+                        	var b = (new Date()).getTime()+1;
+
+                        	if(a!=b){
+                        		var x = Math.ceil(Math.random())+35, // current time
+                                y = Math.random();
+                            series.addPoint([x, y], true, true);
+                        	}
+                            
+                        }, 1000);
+                    }
+                }
+            },
+            title: {
+                text: 'Live random data'
+            },
+            xAxis: {
+                /*tickPixelInterval: 150*/
+            },
+            yAxis: {
+                title: {
+                    text: 'Value'
+                }
+            },
+            tooltip: {
+                formatter: function () {
+                    return '<b>' + this.series.name + '</b><br/>'+ this.x+ ","+this.y;
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            exporting: {
+                enabled: false
+            },
+            series: [{
+                name: 'Random data',
+                data: (function () {
+                    // generate an array of random data
+                    var data = [],
+                        i;
+
+                    for (i = 1; i <= 20; i += 1) {
+                        data.push({
+                            x: 10 + i * 3,
+                            y: Math.floor(Math.random()*50)
+                        });
+                    }
+                    console.log(data)
+                    return data;
+                }())
+            }]
+        });
+    });
+});
+</script>
+</body>
+</html>
